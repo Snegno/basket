@@ -9,28 +9,42 @@
 <body>
 <div class="container" id="app">
 	
-	<div class="products">
-		<div class="products__card">
+	<ul class="products">
+		<li class="products__card">
 			<img class="products__card_img products__card_img--features" src="img/1.png"></img>
 			<p class="products__price">1000 руб.</p>
 			<p class="products__about">Лодка надувная, зеленая.</p>
-			<button class="products__buy">Купить</button>
-		</div>
-		<div class="products__card">
+			<button class="products__buy products__buy_1"
+			v-on:click="clickBuy">Купить</button>
+		</li>
+		<li class="products__card">
 			<img class="products__card_img products__card_img--features" src="img/2.png"></img>
 			<p class="products__price">2000 руб.</p>
 			<p class="products__about">Лодка надувная, желтая.</p>
-			<button class="products__buy">Купить</button>
-		</div>
-		<div class="products__card">
+			<button class="products__buy products__buy_2"
+			v-on:click="clickBuy">Купить</button>
+		</li>
+		<li class="products__card">
 			<img class="products__card_img products__card_img--features" src="img/3.png"></img>
 			<p class="products__price">3000 руб.</p>
 			<p class="products__about">Лодка с веслами.</p>
-			<button class="products__buy">Купить</button>
-		</div>
-	</div>
+			<button class="products__buy products__buy_3"
+			v-on:click="clickBuy">Купить</button>
+		</li>
+	</ul>
 
-	<div class="basket">В вашей корзине пока нет товаров</div>
+	<div class="basket">В вашей корзине пока нет товаров
+		<ul class="basket__list">
+			<li class="basket__element"
+			v-for="(product, index) in products">
+				{{ index }}
+				<img v-bind:src="products[index]" alt="" class="basket__product_foto">
+				<p class="basket__product_about">описание</p>
+				<div class="basket__counter">- & +</div>
+				<div class="basket__price">1000 руб.</div>
+			</li>
+		</ul>
+	</div>
 
 </div>
 
