@@ -44,20 +44,20 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 .products {
 	display: flex;
+	justify-content: center;
 	margin: 0 auto;
 	border: 1px solid red;
-	justify-content: space-around;
 	padding: 20px 0 20px 0;
 }
 
 .products__card {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	align-items: center;
 	border: 1px solid black;
 	border-radius: 2%;
 	padding: 15px;
+	margin-right: 50px;
 }
 
 .products__card_img--features {
