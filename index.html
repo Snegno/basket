@@ -14,34 +14,46 @@
 			<img class="products__card_img products__card_img--features" src="img/1.png"></img>
 			<p class="products__price">1000 руб.</p>
 			<p class="products__about">Лодка надувная, зеленая.</p>
-			<button class="products__buy products__buy_1"
+			<button id="0" class="products__buy products__buy_1"
 			v-on:click="clickBuy">Купить</button>
 		</li>
 		<li class="products__card">
 			<img class="products__card_img products__card_img--features" src="img/2.png"></img>
 			<p class="products__price">2000 руб.</p>
 			<p class="products__about">Лодка надувная, желтая.</p>
-			<button class="products__buy products__buy_2"
+			<button id="1" class="products__buy products__buy_2"
 			v-on:click="clickBuy">Купить</button>
 		</li>
 		<li class="products__card">
 			<img class="products__card_img products__card_img--features" src="img/3.png"></img>
 			<p class="products__price">3000 руб.</p>
 			<p class="products__about">Лодка с веслами.</p>
-			<button class="products__buy products__buy_3"
+			<button id="2" class="products__buy products__buy_3"
 			v-on:click="clickBuy">Купить</button>
 		</li>
 	</ul>
 
-	<div class="basket">В вашей корзине пока нет товаров
+	<div class="basket">
+		<span class="basket__null"
+		v-show="show">В вашей корзине пока нет товаров</span>
 		<ul class="basket__list">
 			<li class="basket__element"
-			v-for="(product, index) in products">
-				{{ index }}
-				<img v-bind:src="products[index]" alt="" class="basket__product_foto">
-				<p class="basket__product_about">описание</p>
-				<div class="basket__counter">- & +</div>
-				<div class="basket__price">1000 руб.</div>
+			v-for:="(product,index) in buy_products_img" >
+				<img v-bind:src="buy_products_img[index]" alt="" class="basket__product_foto">
+				<p class="basket__product_about">
+				{{ buy_products_about[index] }}</p>
+				<div class="basket__counter">
+					<button class="basket__minus basket__vol"
+					v-on:click="priceVolumeDown(index)">-</button> 
+					<span class="basket__volume"> 
+					{{ buy_products_count[index] }} </span>
+					<button class="basket__plus basket__vol"
+					v-on:click="priceVolumeUp(index)">+</button>
+				</div>
+				<div class="basket__price">
+				{{ buy_products_price_basket[index] }} руб.</div>
+				<button class="basket__delete"
+				v-on:click="toDelete(index)">Удалить</button>
 			</li>
 		</ul>
 	</div>
