@@ -79,6 +79,7 @@ Vue.createApp({
 			this.buy_products_about.splice([index],1);
 			this.buy_products_price.splice([index],1);
 			this.buy_products_price_basket.splice([index],1);
+			this.buy_products_count.splice([index],1);
 			
 			if(this.buy_products_img.length == 0){
 				this.show = true;
