@@ -13,7 +13,6 @@ Vue.createApp({
 			count: 1,
 			count_index: 0,
 			show: true,
-			show_in_basket: true,
 			buy_products_img: [],
 			buy_products_about: [],
 			buy_products_price: [],
@@ -30,19 +29,33 @@ Vue.createApp({
 			//className = event.target.className;
 			this.button_id = event.target.id;
 			console.log('button_id='+this.button_id)
-			//передаем src картинки
-			this.buy_products_img[this.count_index] = this.products[this.button_id].img_src;
-			//передаем описание
-			this.buy_products_about[this.count_index] = this.products[this.button_id].about;
-			//передаем цену
-			this.buy_products_price[this.count_index] = this.products[this.button_id].price;
-			this.buy_products_price_basket[this.count_index] = this.products[this.button_id].price;
+
+			// нужно проверить нет ли совпадений
+			if(this.buy_products_img.indexOf(this.products[this.button_id].img_src, 0) < 0) {
+					//передаем src картинки
+					this.buy_products_img.push(this.products[this.button_id].img_src);
 		
-			this.button_id = '';
-			//this.className = '';
-			this.buy_products_count[this.button_id]=1;
+					//передаем описание
+					this.buy_products_about.push(this.products[this.button_id].about);
+		
+					//передаем цену
+					this.buy_products_price.push(this.products[this.button_id].price);
+					// передаем в массив для разной цене в корзине
+					this.buy_products_price_basket.push(this.products[this.button_id].price);
+					console.log('Сработало условие');
+
+					this.buy_products_count[this.button_id]=1;
+				}
+			
+			
+
 			this.show = false;
-			console.log('this.buy_products_img='+this.buy_products_img);
+			this.button_id = '';
+			console.log('this.buy_products_img = '+this.buy_products_img + "\n" +
+							'this.buy_products_about = '+this.buy_products_about	+ "\n" +
+							'this.buy_products_price = '+this.buy_products_price + "\n" +
+							'this.buy_products_price_basket = '+this.buy_products_price_basket + "\n" +
+							'this.buy_products_count[this.button_id] = '+this.buy_products_count[this.button_id]);
 
 			
 			console.log('this.buy_products_img='+this.buy_products_img[0])

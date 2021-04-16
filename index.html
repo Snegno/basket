@@ -38,8 +38,7 @@
 		v-show="show">В вашей корзине пока нет товаров</span>
 		<ul class="basket__list">
 			<li class="basket__element"
-			v-for:="(product,index) in buy_products_img"
-			v-show="show_in_basket">
+			v-for:="(product,index) in buy_products_img">
 				<img v-bind:src="buy_products_img[index]" alt="" class="basket__product_foto">
 				<p class="basket__product_about">
 				{{ buy_products_about[index] }}</p>
