@@ -32,14 +32,13 @@
 			v-on:click="clickBuy">Купить</button>
 		</li>
 	</ul>
-
+	<!-- Корзина -->
 	<div class="basket">
 		<span class="basket__null"
 		v-show="show">В вашей корзине пока нет товаров</span>
 		<ul class="basket__list">
 			<li class="basket__element"
 			v-for:="(product,index) in buy_products_img">
-
 				<img v-bind:src="buy_products_img[index]" alt="" class="basket__product_foto">
 				<p class="basket__product_about">
 					{{ buy_products_about[index] }}
@@ -61,14 +60,17 @@
 				{{ buy_products_price_basket[index] }} руб.</div>
 				<button class="basket__delete"
 				v-on:click="toDelete(index)">Удалить</button>
-
 			</li>
 		</ul>
-
-		<div class="basket__total"
-		v-show="!show">Итого: {{ total_basket }} руб.</div>
+		<div class="basket__total" v-show="!show">
+			Итого: {{ total_basket }} руб.
+			<button class="basket__next">
+				Оформить заказ
+			</button>
+		</div>
 	</div>
 
+	<div class="write_order"></div>
 </div>
 
 <script src="https://unpkg.com/vue@next"></script>

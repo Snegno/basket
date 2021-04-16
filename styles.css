@@ -71,18 +71,22 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 	margin-top: 15px;
 	width: 100px;
 	height: 30px;
-	background-color: #f5f8fa;
-	box-shadow: 0 0 1px 0px black;
+	background-color: #FFFFF0;
+	box-shadow: 0 0 2px 0.7px black;
+	border-radius: 1%;
 }
 
 .products__buy:hover {
-	background-color: #e8ebed;
+	background-color: #FDF4E3;
+	transform: scale(1.005);
 }
 
 /*=== Корзина ===*/
 .basket {
 	border: 1px solid black;
 	padding: 15px;
+	max-width: 70%;
+	margin: 0 auto;
 }
 
 .basket__list {
@@ -105,7 +109,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 }
 
 .basket__product_about {
-   min-width: 53%;
+   min-width: 43%;
    text-align: center;
 }
 
@@ -124,25 +128,45 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 .basket__volume {
 	margin-top: 5px;
+	min-width: 20px;
+	text-align: center;
 }
 
 .basket__price {
+	min-width: 90px;
 }
 
 .basket__delete {
 	width: 100px;
 	height: 30px;
-	background-color: #f5f8fa;
-	box-shadow: 0 0 1px 0px black;
+	background-color: #FFFFF0;
+	box-shadow: 0 0 2px 0.7px black;
+	border-radius: 1%;
+}
+.basket__delete:hover {
+	background-color: #FDF4E3;
+	transform: scale(1.005);
 }
 
 .basket__total {
 	display: flex;
+	align-items: flex-end;
 	justify-content: flex-end;
-	margin: 20px 50px 0 0;
 	font-weight: 700;
 }
 
+.basket__next {
+	width: 120px;
+	height: 30px;
+	background-color: #FFFFF0;
+	box-shadow: 0 0 2px 0.7px black;
+	border-radius: 1%;
+	margin: 25px 0 0 25px;
+}
+.basket__next:hover {
+	background-color: #FDF4E3;
+	transform: scale(1.005);
+}
 
 
 
