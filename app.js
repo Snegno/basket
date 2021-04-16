@@ -11,12 +11,12 @@ Vue.createApp({
 			className: '',
 			button_id: '',
 			count: 1,
-			count_index: 0,
 			show: true,
 			buy_products_img: [],
 			buy_products_about: [],
 			buy_products_price: [],
 			buy_products_price_basket: [],
+			total_basket: 0,
 			buy_products_count: []
 		}
 	},
@@ -49,7 +49,13 @@ Vue.createApp({
 					console.log('this.buy_products_count = '+this.buy_products_count)
 				}
 			
-			
+			// ИТОГО в корзине
+			this.total_basket = this.buy_products_price_basket.reduce(
+				function(previousValue,item){
+				return previousValue + Number(item);
+			})
+
+			console.log('summa = '+this.total_basket)
 
 			this.show = false;
 			this.button_id = '';
@@ -66,12 +72,28 @@ Vue.createApp({
 			//увеличиваем счетчик в массиве чтобы у каждого эл-та был свой count
 			this.buy_products_count[index] = this.buy_products_count[index]+1;
 			this.buy_products_price_basket[index] = this.buy_products_price[index]*this.buy_products_count[index];
+
+			// ИТОГО в корзине
+			this.total_basket = this.buy_products_price_basket.reduce(
+				function(previousValue,item){
+				return previousValue + Number(item);
+			})
+
+			console.log('summa = '+this.total_basket)
 		},
 		priceVolumeDown(index){
 			if(this.buy_products_count[index] > 0){
 				this.buy_products_count[index] = this.buy_products_count[index]-1;
 				
 				this.buy_products_price_basket[index] = this.buy_products_price[index]*this.buy_products_count[index];
+
+				// ИТОГО в корзине
+			this.total_basket = this.buy_products_price_basket.reduce(
+				function(previousValue,item){
+				return previousValue + Number(item);
+			})
+
+			console.log('summa = '+this.total_basket)
 			}
 		},
 		toDelete(index){
@@ -84,6 +106,14 @@ Vue.createApp({
 			if(this.buy_products_img.length == 0){
 				this.show = true;
 			}
+
+			// ИТОГО в корзине
+			this.total_basket = this.buy_products_price_basket.reduce(
+				function(previousValue,item){
+				return previousValue + Number(item);
+			})
+
+			console.log('summa = '+this.total_basket)
 			
 		}
 	},
