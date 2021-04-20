@@ -115,6 +115,16 @@ Vue.createApp({
 
 			console.log('summa = '+this.total_basket)
 			
+		},
+		sendForm(event){
+			//запрещаем стандартную отправку
+			event.preventDefault()
+
+			let formDate = new FormData()
+
+			for(let name of formDate){
+				console.log('name = '+name)
+			}
 		}
 	},
 	/*computed: {

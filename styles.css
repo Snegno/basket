@@ -168,5 +168,39 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 	transform: scale(1.005);
 }
 
+/*Ордер*/
+.basket {
+	display: none;
+}
 
+.order {
+	margin: 25px 0 0 0;
+	border: 2px solid black;
+}
 
+.order__info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px 0 20px 0;
+}
+
+.order__input {
+	border: 1px solid black;
+	margin: 10px 0 0 0;
+	width: 20%;
+}
+
+.order__pay {
+	margin-top: 15px;
+	width: 110px;
+	height: 30px;
+	background-color: #FFFFF0;
+	box-shadow: 0 0 2px 0.7px black;
+	border-radius: 1%;
+}
+
+.order__pay:hover {
+	background-color: #FDF4E3;
+	transform: scale(1.005);
+}

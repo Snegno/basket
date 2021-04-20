@@ -70,7 +70,15 @@
 		</div>
 	</div>
 
-	<div class="write_order"></div>
+	<div class="order">
+		<form class="order__info" method="post">
+			<input name="name" class="order__pers_data order__input" type="text" placeholder="ФИО"></input>
+			<input name="email" class="order__e-mail order__input" type="email" placeholder="Адрес эл. почты"></input>
+			<input name="phone" class="order__phone order__input" type="tel" placeholder="+79999999999"></input>
+			<button class="order__pay" type="submit"
+			v-on:click="sendForm">Перейти к оплате</button>
+		</form>
+	</div>
 </div>
 
 <script src="https://unpkg.com/vue@next"></script>
