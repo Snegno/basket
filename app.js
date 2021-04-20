@@ -17,7 +17,10 @@ Vue.createApp({
 			buy_products_price: [],
 			buy_products_price_basket: [],
 			total_basket: 0,
-			buy_products_count: []
+			buy_products_count: [],
+			input_name: '',
+			input_email: '',
+			input_phone: ''
 		}
 	},
 	methods: {
@@ -120,11 +123,13 @@ Vue.createApp({
 			//запрещаем стандартную отправку
 			event.preventDefault()
 
-			let formDate = new FormData()
+			console.log(this.input_name+this.input_email+this.input_phone)
+			console.log('зачищаем поля')
+			this.input_name='';
+			this.input_email='';
+			this.input_phone = '';
 
-			for(let name of formDate){
-				console.log('name = '+name)
-			}
+
 		}
 	},
 	/*computed: {
@@ -133,3 +138,4 @@ Vue.createApp({
 		}
 	}*/
 }).mount('#app');
+

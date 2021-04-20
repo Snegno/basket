@@ -71,17 +71,22 @@
 	</div>
 
 	<div class="order">
-		<form class="order__info" method="post">
-			<input name="name" class="order__pers_data order__input" type="text" placeholder="ФИО"></input>
-			<input name="email" class="order__e-mail order__input" type="email" placeholder="Адрес эл. почты"></input>
-			<input name="phone" class="order__phone order__input" type="tel" placeholder="+79999999999"></input>
+		<form name="myForm" class="order__info" method="post">
+			<input name="name" class="order__pers_data order__input" type="text" placeholder="ФИО"
+			v-model="input_name"></input>
+			<input name="email" class="order__e-mail order__input" type="email" placeholder="Адрес эл. почты"
+			v-model="input_email"></input>
+			<input name="phone" class="order__phone order__input" type="tel" placeholder="+79999999999" 
+			v-model="input_phone"></input>
 			<button class="order__pay" type="submit"
 			v-on:click="sendForm">Перейти к оплате</button>
 		</form>
 	</div>
 </div>
 
+
 <script src="https://unpkg.com/vue@next"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
