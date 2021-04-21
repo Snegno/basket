@@ -5,20 +5,32 @@ require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
 // Переменные, которые отправляет пользователь
-$name = $_POST['name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
+//$name = $_POST['name'];
+//$email = $_POST['email'];
+//$phone = $_POST['phone'];
 //$text = $_POST['text'];
 //$file = $_FILES['myfile'];
 
+//так как мы отправляем не форму, нужно переделать наш запрос чтобы он выгляде как форма:
+// забрали json который отправили
+$entityBody = file_get_contents('php://input');
+
+//декодируем json и делаем из него массив, который будем использовать вместо $_POST
+$arr = json_decode($entityBody, true);
+$name = $arr['name'];
+$email = $arr['email'];
+$phone = $arr['phone'];
+// Готово - теперь наш запрос похож на запрос из формы
+
+ //var_dump($entityBody);die; //для дебага юзалось
+ 
 // Формирование самого письма
 $title = "Тест отправки письма в даль";
 $body = "
 <h2>Новое письмо</h2>
-<b>Имя:</b> $name<br>
-<b>Почта:</b> $email<br><br>
-<b>Телефон:</b><br>$phone
-";
+<b>Имя:</b> {$name}<br>
+<b>Почта:</b> {$email}<br><br>
+<b>Телефон:</b><br>{$phone}";
 
 // Настройки PHPMailer
 $mail = new PHPMailer\PHPMailer\PHPMailer();
