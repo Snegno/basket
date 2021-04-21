@@ -37,6 +37,10 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+[v-cloak] {
+	display: none;
+}
+
 .container {
 	border: 1px solid black;
 	font-size: 18px;
@@ -169,9 +173,6 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 }
 
 /*Ордер*/
-.basket {
-	display: none;
-}
 
 .order {
 	margin: 25px 0 0 0;
@@ -189,6 +190,10 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 	border: 1px solid black;
 	margin: 10px 0 0 0;
 	width: 20%;
+}
+
+.order__summ {
+	margin: 10px 0 0 0;
 }
 
 .order__pay {

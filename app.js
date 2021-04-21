@@ -12,6 +12,7 @@ Vue.createApp({
 			button_id: '',
 			count: 1,
 			show: true,
+			show_basket: true,
 			buy_products_img: [],
 			buy_products_about: [],
 			buy_products_price: [],
@@ -119,9 +120,14 @@ Vue.createApp({
 			console.log('summa = '+this.total_basket)
 			
 		},
+		goOrder(){
+			this.show_basket = false;
+		},
 		sendForm(event){
 			//запрещаем стандартную отправку
 			event.preventDefault()
+
+			alert('Поставьте мне сервер с php и письма полетят! '+"\n"+'уже проверено ^_^');
 
 			axios.post('post.php', {
                 'name': this.input_name,
