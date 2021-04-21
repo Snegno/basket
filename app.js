@@ -123,6 +123,18 @@ Vue.createApp({
 			//запрещаем стандартную отправку
 			event.preventDefault()
 
+			axios.post('post.php', {
+                'name': this.input_name,
+                'email': this.input_email,
+                'phone': this.input_phone
+            }).then(response => {
+                console.log('success', response.data.message)
+            }).catch(error => {
+                console.log(error.response)
+            });
+
+
+
 			console.log(this.input_name+this.input_email+this.input_phone)
 			console.log('зачищаем поля')
 			this.input_name='';
