@@ -35,7 +35,7 @@ try {
     $mail->Password   = 'hvocyeyacdfzdufo'; // Пароль на почте
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
-    $mail->setFrom('mail@yandex.ru', 'Имя отправителя'); // Адрес самой почты и имя отправителя
+    $mail->setFrom('yoko1505@yandex.ru', 'Отправитель'); // Адрес самой почты и имя отправителя
 
     // Получатель письма
     $mail->addAddress('yoko1505@yandex.ru');  
