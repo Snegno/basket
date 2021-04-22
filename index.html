@@ -15,32 +15,41 @@
 			<p class="products__price">1000 руб.</p>
 			<p class="products__about">Лодка надувная, зеленая.</p>
 			<button id="0" class="products__buy products__buy_1"
-			v-on:click="clickBuy">Купить</button>
+			v-on:click="clickBuy">
+				Купить
+			</button>
 		</li>
 		<li class="products__card">
 			<img class="products__card_img products__card_img--features" src="img/2.png"></img>
 			<p class="products__price">2000 руб.</p>
 			<p class="products__about">Лодка надувная, желтая.</p>
 			<button id="1" class="products__buy products__buy_2"
-			v-on:click="clickBuy">Купить</button>
+			v-on:click="clickBuy">
+				Купить
+			</button>
 		</li>
 		<li class="products__card">
 			<img class="products__card_img products__card_img--features" src="img/3.png"></img>
 			<p class="products__price">3000 руб.</p>
 			<p class="products__about">Лодка с веслами.</p>
 			<button id="2" class="products__buy products__buy_3"
-			v-on:click="clickBuy">Купить</button>
+			v-on:click="clickBuy">
+				Купить
+			</button>
 		</li>
 	</ul>
 	<!-- Корзина -->
 	<div class="basket"
 	v-show="show_basket">
 		<span class="basket__null"
-		v-show="show">В вашей корзине пока нет товаров</span>
+		v-show="show">
+			В вашей корзине пока нет товаров
+		</span>
 		<ul class="basket__list">
 			<li class="basket__element"
 			v-for:="(product,index) in buy_products_img">
-				<img v-bind:src="buy_products_img[index]" alt="" class="basket__product_foto">
+				<img 
+				v-bind:src="buy_products_img[index]" alt="" class="basket__product_foto">
 				<p class="basket__product_about">
 					{{ buy_products_about[index] }}
 				</p>
@@ -60,10 +69,13 @@
 				<div class="basket__price">
 				{{ buy_products_price_basket[index] }} руб.</div>
 				<button class="basket__delete"
-				v-on:click="toDelete(index)">Удалить</button>
+				v-on:click="toDelete(index)">
+					Удалить
+				</button>
 			</li>
 		</ul>
-		<div class="basket__total" v-show="!show">
+		<div class="basket__total" 
+		v-show="!show">
 			Итого: {{ total_basket }} руб.
 			<button class="basket__next"
 			v-on:click="goOrder">
@@ -91,6 +103,6 @@
 
 <script src="https://unpkg.com/vue@next"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="basket.js"></script>
 </body>
 </html>
