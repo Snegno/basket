@@ -66,6 +66,8 @@ if (!empty($file['name'][0])) {
         }
     }   
 }
+
+
 // Отправка сообщения
 $mail->isHTML(true);
 $mail->Subject = $title;

@@ -123,36 +123,40 @@ Vue.createApp({
 		goOrder(){
 			this.show_basket = false;
 		},
-		sendForm(event){
+		sendForm(){
 			//запрещаем стандартную отправку
 			event.preventDefault()
 
-			alert('Поставьте мне сервер с php и письма полетят! '+"\n"+'уже проверено ^_^'+"n"+
-				'На сервер улетели данные:'+"\n"+
-				'Имя: '+this.input_name+"\n"+
-				'Почта: '+this.input_email+"\n"+
-				'Телефон: '+this.input_phone+"\n"+
-				'Так как данные у нас в реале не являются формой,'+"\n"+
-				'мы парсим их в php-файле с помощью json-декодера');
+			if(this.input_name == ''||this.input_email == ''||this.input_phone == ''){
+				alert('Заполните данные!')
+			}
+			else {
+				alert('Поставьте мне сервер с php и письма полетят! '+"\n"+'уже проверено ^_^'+"n"+
+					'На сервер улетели данные:'+"\n"+
+					'Имя: '+this.input_name+"\n"+
+					'Почта: '+this.input_email+"\n"+
+					'Телефон: '+this.input_phone+"\n"+
+					'Так как данные у нас в реале не являются формой,'+"\n"+
+					'мы парсим их в php-файле с помощью json-декодера');
 
-			axios.post('post.php', {
-                'name': this.input_name,
-                'email': this.input_email,
-                'phone': this.input_phone
-            }).then(response => {
-                console.log('success', response.data.message)
-            }).catch(error => {
-                console.log(error.response)
-            });
+				axios.post('post.php', {
+	                'name': this.input_name,
+	                'email': this.input_email,
+	                'phone': this.input_phone
+	            }).then(response => {
+	                console.log('success', response.data.message)
+	            }).catch(error => {
+	                console.log(error.response)
+	            });
 
 
 
-			console.log(this.input_name+this.input_email+this.input_phone)
-			console.log('зачищаем поля')
-			this.input_name='';
-			this.input_email='';
-			this.input_phone = '';
-
+				console.log(this.input_name+this.input_email+this.input_phone)
+				console.log('зачищаем поля')
+				this.input_name='';
+				this.input_email='';
+				this.input_phone = '';
+			}
 
 		}
 	},
